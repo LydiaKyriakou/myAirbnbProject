@@ -9,21 +9,32 @@ The project consists of two parts:
 Regarding the security of the application, Spring Security has been used
 as well as JWT technology and the SSL protocol
 
+## Table of Contents
+- [Instructions - Installation](#Instructions - Installation)
+  - [Database](#Database)
+  - [Backend](#Backend)
+  - [Frontend](#Frontend)
+- [Screenshot](#Screenshot)
+
 ## Instructions - Installation
 
-**Database:**
+### Database
 It is required to import the database file from My-Sql-Workbench.
 
-**Backend:**
+### Backend
 1) Download the file and open it in intellij
 2) hanging the personal information in the "application properties" regarding the url
 (base name), username, password
 3) Run the program via Run "ΝewAirbnbApplication" on the top right.
 
-**Frontend:**
+### Frontend
 1) Angular 16 is required to run in VS-Code
 2) Download the file and open it in VS Code.
 3) Run the command `ng serve` to run the program.
 4) Navigate to `http://localhost:4200/
+
+## Screenshot
+
+![Project Logo](https://github.com/LydiaKyriakou/myAirbnbProject/blob/master/Screenshot/user_home.png)
 
 
