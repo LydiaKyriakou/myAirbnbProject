@@ -1,0 +1,17 @@
+<div *ngIf="user">
+  <h1>User Details</h1>
+  <div class="profile-info">
+      <img src={{user.imageUrl}} alt="Profile Picture" class="profile-picture">
+      <h2>{{user.username}}</h2>
+      <p><strong>User ID: {{user.id}}</strong></p>
+      <p><strong>Role: {{ getUserRole(user) }}</strong></p>
+      <p>First Name: {{user.firstName}}</p>
+      <p>Last Name: {{user.lastName}}</p>
+      <p>Email: {{user.email}}</p>
+      <p>Phone Number: {{user.phone}}</p>
+  </div>
+</div>
+
+<div *ngIf="!user" class="user-not-found">
+  <h1>User Not Found</h1>
+</div>

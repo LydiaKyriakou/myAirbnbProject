@@ -1,0 +1,48 @@
+<header>
+  <div class="container">
+    <div class="left-section">
+      <img src="../assets/images/logo.png" alt="Logo" class="logo">
+    </div>
+    <div class="right-section">
+      <nav>
+        <ul>
+          <ng-container *ngIf="user">
+            <!-- Display these items when the token is available -->
+            <li>
+              <!-- Display these items when the user is logged in -->
+              <ng-container *ngIf="hasUserRole()">
+                <a routerLink="/">Home</a>
+                <a routerLink="/reservations">My Reservations</a>
+              </ng-container>
+
+              <!-- Display these items when the user is logged in as host -->
+              <ng-container *ngIf="hasHostRole()">
+                <a routerLink="/host">My Rentals</a>
+                <a routerLink="/add-rental">Add Rentals</a>
+                <a routerLink="/messages">Chat</a>
+              </ng-container>
+
+              <!-- Display these items when the user is logged in as host -->
+              <ng-container *ngIf="hasAdminRole()">
+                <a routerLink="/admin">All Users</a>
+                <a routerLink="/export-data">Export Data</a>
+              </ng-container>
+
+              <a (click)="logout()">Log out</a>
+              <img *ngIf="user.imageUrl" src={{user.imageUrl}} routerLink="/profile" alt="Profile Picture" class="profile-picture">
+              <a [style.color]="decodedToken ? 'blue' : 'red'">{{ user.username }}</a>
+            </li>
+          </ng-container>
+          <ng-container *ngIf="!user">
+            <!-- Display these items when the token is null -->
+            <li>
+              <a routerLink="/">Home</a>
+              <a routerLink="/register">Register</a>
+              <a routerLink="/log-in">Log in</a>
+            </li>
+          </ng-container>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

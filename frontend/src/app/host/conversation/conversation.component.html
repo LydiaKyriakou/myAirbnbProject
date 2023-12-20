@@ -1,0 +1,40 @@
+<div class="conversation-title">
+    <h1>Conversation with '{{ senderUsername }}'</h1>
+</div>
+
+<div class="container">
+    <div class="box">
+        <div *ngFor="let message of messages" [ngClass]="{'host-message': message.sender === senderId, 'receiver-message': message.sender === receiverId}">
+          <div class="message">
+            <span class="timestamp">{{ convertTimestamp(message.timestamp) | date:'yyyy-MM-dd HH:mm' }}</span>
+            <span class="sender">
+              {{ message.sender === receiverId ? 'You' : (message.sender === senderId ? senderUsername : message.sender) }}:
+            </span>
+            <span class="content">{{ message.content }}</span>
+            <span class="delete-icon" (click)="deleteMessage(message.id)">
+                <i class="fas fa-trash"></i>
+            </span>
+          </div>
+        </div>
+    </div>
+
+
+    <button *ngIf="messages.length < allMessages.length" (click)="loadMoreMessages()" class="load-more-button">
+        Load More
+    </button>
+
+    
+    <div class="message-input">
+        <form (ngSubmit)="sendMessage()" #messageForm="ngForm" class="message-form">
+        <input
+            type="text"
+            name="messageContent"
+            [(ngModel)]="messageContent"
+            placeholder="Type your message..."
+            required
+            class="message-input-field"
+            />
+        <button type="submit" class="send-button">Send</button>
+    </form>
+  </div>
+</div>

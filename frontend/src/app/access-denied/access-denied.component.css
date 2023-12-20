@@ -1,0 +1,17 @@
+.access-denied-container {
+    text-align: center;
+    margin-top: 100px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    font-size: 36px;
+    color: var(--primary-color); 
+  }
+  
+  p {
+    font-size: 18px;
+    color: #333; 
+    margin-top: 20px;
+  }
+  

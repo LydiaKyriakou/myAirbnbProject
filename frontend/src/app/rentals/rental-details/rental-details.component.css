@@ -1,0 +1,145 @@
+.rental-details-container {
+    padding: 20px;
+    padding-right: 200px;
+    padding-left: 200px;
+}
+  
+.rental-image {
+    max-width: 300px;
+    max-height: 200px;
+    border-radius: 5px;
+}
+  
+.image-container {
+    display: flex; 
+    flex-wrap: nowrap; 
+  }
+  
+.image-thumbnail {
+    width: 350px; 
+    height: auto;
+    margin-right: 10px; 
+}
+  
+h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+  
+p {
+    margin: 5px 0;
+}
+  
+strong {
+    font-weight: bold;
+}
+  
+.back-button {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+  
+.back-button a {
+    background-color: #FF7F00;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+  
+.back-button a:hover {
+    background-color: #FF6347;
+}
+
+
+ul {
+    list-style-type: disc;
+}
+  
+ul li {
+    margin-bottom: 8px; 
+    margin-left: 20px; 
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.box {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex-basis: calc(33.33% - 20px);
+    margin-right: 20px;
+}
+
+.box:last-child {
+    margin-right: 0;
+}
+
+.same-row {
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  
+    > div {
+      float:left;
+      width:48%;
+      margin-right:4%;
+      &:last-child { 
+        margin:0;
+      }
+    }
+}
+
+#map { 
+    height: 300px; 
+    width: 100%;
+}
+
+.map-container {
+    position: relative;
+    margin-top: 10px;
+    height: 305px; 
+    width: 100%;
+}
+
+.map-frame {
+    border: 2px solid black;
+    height: 100%;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+  
+label {
+    display: block;
+    padding-left: 10px;
+    color: var(--primary-color-light);
+}
+  
+
+input[type="date"],
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid var(--grey-color);
+    width: 200px;
+}
+
+  

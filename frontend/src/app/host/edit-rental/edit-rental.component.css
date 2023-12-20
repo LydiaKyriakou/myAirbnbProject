@@ -1,0 +1,132 @@
+.add-rental-form {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid var(--grey-color);
+    border-radius: 5px;
+}
+
+.container {
+    padding-top: 30px;
+    padding-right: 200px;
+    padding-left: 200px;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.image-thumbnail {
+    margin-bottom: 10px; 
+    display: flex;
+    align-items: center;
+}
+
+
+.image-thumbnail {
+    width: 350px; 
+    height: auto;
+    margin-right: 10px; 
+}
+
+.delete-icon {
+    cursor: pointer;
+    margin-left: 10px; 
+}
+
+.same-row {
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  
+    > div {
+      float:left;
+      width:48%;
+      margin-right:4%;
+      &:last-child { 
+        margin:0;
+      }
+    }
+}
+
+input[type=text], input[type=number] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: var(--background-color);
+}
+
+input[type=text]:focus {
+    background-color: var(--grey-color-light);
+    outline: none;
+}
+
+hr {
+    border: 1px solid var(--background-color);
+    margin-bottom: 25px;
+}
+
+label{
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--grey-color);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    font-size: 16px;
+    color: var(--text-color);
+}
+  
+select:focus {
+    outline: none;
+    border-color: var(--secondary-color-light);
+}
+
+.title {
+    color: var(--secondary-color);
+    /* padding-left: 20px; */
+}
+
+.box {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+#map { 
+    height: 300px; 
+    width: 100%;
+}
+
+.map-container {
+    position: relative;
+    margin-top: 10px;
+    height: 305px; 
+    width: 100%;
+}
+
+.map-frame {
+    border: 2px solid black;
+    height: 100%;
+}
+
+.mat-datepicker-content {
+    background-color: #f0f0f0;
+  }
+  
+
+.mat-calendar-body-selected {
+    background-color: #007bff;
+    color: #fff;
+}

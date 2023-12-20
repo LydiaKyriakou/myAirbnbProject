@@ -1,0 +1,66 @@
+<footer>
+  <div class="footer-left">
+    <div class="logo-container">
+      <img src="../assets/images/logo.png" routerLink="/" alt="Logo" class="logo">
+    </div>
+    <br>
+    <div class="contact-info">
+      <i class="fa fa-map-marker"></i>
+      <p>Athens, 157 84</p>
+    </div>
+    <div class="contact-info">
+      <i class="fa fa-phone"></i>
+      <p><a href="tel:+302101234567">+30 210 1234 567</a></p>
+    </div>
+    <div class="contact-info">
+      <i class="fa fa-envelope"></i>
+      <p><a href="mailto:info@getaroom.com">info@getaroom.com</a></p>
+    </div>
+  </div>
+
+
+  <div class="footer-middle">
+    <br>
+    <div>
+      <h3>Useful Links</h3>
+    </div>
+    <div *ngIf="this.decodedToken == null">
+      <ul>
+        <li><a routerLink="">Home</a></li>
+      </ul>
+    </div>
+
+    <div *ngIf="this.decodedToken && this.decodedToken.roles.includes('ROLE_USER')">
+      <ul>
+        <li><a routerLink="">Home</a></li>
+        <li><a routerLink="/reservations">My Reservations</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <ul *ngIf="this.decodedToken && this.decodedToken.roles.includes('ROLE_HOST')">
+        <li><a routerLink="/host">My Rentals</a></li>
+        <li><a routerLink="/add-rental">Add Rentals</a></li>
+        <li><a routerLink="/messages">Chat</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <ul *ngIf="this.decodedToken && this.decodedToken.roles.includes('ROLE_ADMIN')">
+        <li><a routerLink="/admin">All Users</a></li>
+        <li><a routerLink="/export-data">Export Data</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="footer-right">
+    <br>
+    <h3>Follow Us</h3>
+    <div class="social-media">
+      <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</footer>
+

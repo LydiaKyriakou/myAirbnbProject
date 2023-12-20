@@ -1,0 +1,305 @@
+<form (submit)="updateRental()">
+    <div *ngIf="oldRental" class="container">
+        <h1>Edit Rental </h1>
+        <h5>Please fill in this form to edit the Rental.</h5>
+        <hr>        
+        
+        <h2 class="title">Location</h2>
+        <div class="box">
+            <div class="map-container">
+                <div id="map-frame">
+                  <div id="map"
+                      leaflet
+                      [leafletOptions]="options"
+                      (leafletMapReady)="onMapReady($event)">
+                  </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div>
+                Old coordinates: {{ oldRental.coordinatex }} , {{ oldRental.coordinatey }}
+            </div>
+
+            <div *ngIf="coordinateX && coordinateY">
+                New coordinates: {{ coordinateX }} , {{ coordinateY }}
+            </div>
+            <br>
+
+            <div class="same-row">
+                <div>
+                    <label for="address">Address <span class="req"></span></label>
+                    <input type="text" id="address" name="address"  [(ngModel)]="oldRental.address">
+                </div>
+    
+                <div>
+                    <label for="address">City <span class="req"></span></label>
+                    <input type="text" id="city" name="city"  [(ngModel)]="oldRental.city">
+                </div>
+            </div>   
+            <div class="same-row">
+                <div>
+                    <label for="neighbor">Neighbor <span class="req"></span></label>
+                    <input type="text" id="neighbor" name="neighbor"  [(ngModel)]="oldRental.neighbor">
+                </div>
+        
+                <div>
+                    <label for="transportation">Transportation <span class="req"></span></label>
+                    <input type="text" id="transportation" name="transportation"  [(ngModel)]="oldRental.transportation">
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <h2 class="title">Availiable Dates</h2>
+        <div class="box">
+            <div class="same-row">
+                <div>
+                    <input type="date" id="checkin" name="arrive" [(ngModel)]="availdate">
+                </div>
+                <div>
+                    <button type="button" class="registerbtn" (click)="saveDate()">Add Date</button>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="available-dates">
+                <h3>New Dates:</h3>
+                <ul>
+                  <li *ngFor="let date of newRentalAvail">
+                    {{ date.date | date:'MM-dd-yyyy' }}
+                  </li>
+                </ul>
+            </div>
+
+            <br>
+
+            <div class="available-dates">
+                <h3>Added Dates:</h3>
+                <ul>
+                  <li *ngFor="let date of oldRental?.rentalAvail" >
+                    <div *ngIf="date.available == true">
+                        {{ date.date | date:'MM-dd-yyyy' }}
+                        <span class="delete-icon" (click)="removeDate(date); refreshRentalAvail()"> 
+                          <i class="fas fa-trash"></i>
+                        </span>
+                    </div>
+                  </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <br>
+
+        <h2 class="title">Rental Price</h2>
+        <div class="box">
+            <div class="same-row">
+                <div>
+                    <label for="maxVisitors">Max Visitors <span class="req"></span></label>
+                    <input type="number" id="maxVisitors" name="maxVisitors"  [(ngModel)]="oldRental.maxVisitors">
+                </div>
+        
+                <div>
+                    <label for="minPrice">Minimum Price <span class="req"></span></label>
+                    <input type="number" id="minPrice" name="minPrice"  [(ngModel)]="oldRental.minPrice">
+                </div>
+            </div>
+
+            <div class="same-row">
+                <div>
+                    <label for="plusPricePerPerson">Plus Price Per Person <span class="req"></span></label>
+                    <input type="number" id="plusPricePerPerson" name="plusPricePerPerson"  [(ngModel)]="oldRental.plusPricePerPerson">
+                </div>
+        
+                <div>
+                    <label for="type">Type <span class="req"></span></label>
+                    <select id="type" name="userType" id="type"  [(ngModel)]="oldRental.type">
+                        <option value="Entire Place">Entire Place</option>
+                        <option value="Private Room">Private Room</option>
+                        <option value="Shared Room">Shared Room</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <h2 class="title">Rules</h2>
+        <div class="box">
+            <div class="same-row">
+                <div>
+                    <label>Smoking is allowed:</label>
+                    <input type="radio" id="smokingYes" name="smoking" [(ngModel)]="oldRental.smoking" [value]="true">
+                    <label for="smokingYes">Yes</label>
+                    <input type="radio" id="smokingNo" name="smoking" [(ngModel)]="oldRental.smoking" [value]="false">
+                    <label for="smokingNo">No</label>
+                    
+                    <label>Pets are allowed:</label>
+                    <input type="radio" id="petsYes" name="pets" [(ngModel)]="oldRental.pets" [value]="true">
+                    <label for="petsYes">Yes</label>
+                    <input type="radio" id="petsNo" name="pets" [(ngModel)]="oldRental.pets" [value]="false">
+                    <label for="petsNo">No</label>
+                    
+                    <label>Events are allowed</label>
+                    <input type="radio" id="eventsYes" name="events" [(ngModel)]="oldRental.events" [value]="true">
+                    <label for="eventsYes">Yes</label>
+                    <input type="radio" id="eventsNo" name="events" [(ngModel)]="oldRental.events" [value]="false">
+                    <label for="eventsNo">No</label>
+                </div>
+        
+                <div>
+                    <label for="minDays">Minimum Days<span class="req"> </span></label>
+                    <input type="number" id="minDays" name="minDays"  [(ngModel)]="oldRental.minDays">
+                </div>
+
+            </div>
+        </div>
+
+        <br>
+
+        <h2 class="title">Description</h2>
+        <div class="box">
+            <div>
+                <input type="text" id="description" name="description"  [(ngModel)]="oldRental.description">
+            </div>
+        </div>
+
+        <br>
+
+        <h2 class="title">Rental Information</h2>
+        <div class="box">
+            <div class="same-row">
+                <div>
+                    <label for="beds">Beds <span class="req"></span></label>
+                    <input type="number" id="beds" name="beds"  [(ngModel)]="oldRental.beds">
+                </div>
+        
+                <div>
+                    <label for="bathrooms">Bathrooms <span class="req"></span></label>
+                    <input type="number" id="bathrooms" name="bathrooms"  [(ngModel)]="oldRental.bathrooms">
+                </div>
+            </div>
+    
+            <div class="same-row">
+                <div>
+                    <label for="bedrooms">Bedrooms <span class="req"></span></label>
+                    <input type="number" id="bedrooms" name="bedrooms"  [(ngModel)]="oldRental.bedrooms">
+                </div>
+    
+                <div>
+                    <label for="area">Area <span class="req"></span></label>
+                    <input type="number" id="area" name="area"  [(ngModel)]="oldRental.area">
+                </div>
+            </div>
+            <div>
+                <label>Living Room exists:</label>
+                <input type="radio" id="livingroomYes" name="livingroom" [(ngModel)]="oldRental.livingroom" [value]="true">
+                <label for="livingroomYes">Yes</label>
+                <input type="radio" id="livingroomNo" name="livingroom" [(ngModel)]="oldRental.livingroom" [value]="false">
+                <label for="livingroomNo">No</label>
+            </div>
+        </div>
+
+        <br>
+        
+        <h2 class="title">Amenities</h2>
+        <div class="box">
+            <div>
+                <div>
+                    <label>WiFi:</label>
+                    <input type="radio" id="wifiYes" name="wifi" [(ngModel)]="oldRental.wifi" [value]="true">
+                    <label for="wifiYes">Yes</label>
+                  
+                    <input type="radio" id="wifiNo" name="wifi" [(ngModel)]="oldRental.wifi" [value]="false">
+                    <label for="wifiNo">No</label>
+                </div>
+
+                <div>
+                    <label>AC:</label>
+                    <input type="radio" id="acYes" name="ac" [(ngModel)]="oldRental.ac" [value]="true">
+                    <label for="acYes">Yes</label>
+                  
+                    <input type="radio" id="acNo" name="ac" [(ngModel)]="oldRental.ac" [value]="false">
+                    <label for="acNo">No</label>
+                </div>
+
+                <div>
+                    <label>Kitchen:</label>
+                    <input type="radio" id="kitchenYes" name="kitchen" [(ngModel)]="oldRental.kitchen" [value]="true">
+                    <label for="kitchenYes">Yes</label>
+                  
+                    <input type="radio" id="kitchenNo" name="kitchen" [(ngModel)]="oldRental.kitchen" [value]="false">
+                    <label for="kitchenNo">No</label>
+                </div>
+
+                <div>
+                    <label>TV:</label>
+                    <input type="radio" id="tvYes" name="tv" [(ngModel)]="oldRental.tv" [value]="true">
+                    <label for="tvYes">Yes</label>
+                  
+                    <input type="radio" id="tvNo" name="tv" [(ngModel)]="oldRental.tv" [value]="false">
+                    <label for="tvNo">No</label>
+                </div>
+
+                <div>
+                    <label>Parking:</label>
+                    <input type="radio" id="parkingYes" name="parking" [(ngModel)]="oldRental.parking" [value]="true">
+                    <label for="parkingYes">Yes</label>
+                  
+                    <input type="radio" id="parkingNo" name="parking" [(ngModel)]="oldRental.parking" [value]="false">
+                    <label for="parkingNo">No</label>
+                </div>
+
+                <div>
+                    <label>Elevator:</label>
+                    <input type="radio" id="elevatorYes" name="elevator" [(ngModel)]="oldRental.elevator" [value]="true">
+                    <label for="elevatorYes">Yes</label>
+                  
+                    <input type="radio" id="elevatorNo" name="elevator" [(ngModel)]="oldRental.elevator" [value]="false">
+                    <label for="elevatorNo">No</label>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+
+        <h2 class="title">Images</h2>
+        <div class="box">
+            <br>
+            <div *ngIf="oldRental.imageUrls && oldRental.imageUrls.length > 0">
+              <div class="image-container">
+                <div class="image-thumbnail" *ngFor="let image of oldRental.imageUrls">
+                  <img [src]="image.imageUrl" alt="Rental Image" class="image-thumbnail">
+                  <span class="delete-icon" (click)="deleteImage(image)">
+                    <i class="fas fa-trash"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <h2 >Add Image</h2>
+            <div class="box">
+                <label for="imageUrl">Image Url <span class="req">*</span></label>
+                <br>
+                <input type="file" (change)="onSelect($event)" multiple/>
+            </div>
+        </div>
+        
+        
+        <br>
+
+        <button type="submit" class="registerbtn">Make Changes</button>
+  
+        
+    </div>
+
+
+</form>
+

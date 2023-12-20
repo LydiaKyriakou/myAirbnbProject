@@ -1,0 +1,28 @@
+<h1>My Reservations</h1>
+<div *ngIf="reservations" class="reservations-table">
+  <table>
+    <thead>
+      <tr>
+        <th>City</th>
+        <th>Check in</th>
+        <th>Check out</th>
+        <th>Review</th>
+        <th>Rental</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reservation of reservations">
+        <td><strong>{{ reservation.rental.city }}</strong></td>
+        <td>{{ reservation.startDate | date:'MM-dd-yyyy' }}</td>
+        <td>{{ reservation.endDate | date:'MM-dd-yyyy' }}</td> 
+        <td><button (click)="makeReview(reservation.rental.id || 0)">Make a Review</button></td>
+        <td><button (click)="seeRental(reservation.rental.id || 0)">See Rental</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="!reservations">
+  <p class="no-user">No reservations found.</p>
+</div>
+

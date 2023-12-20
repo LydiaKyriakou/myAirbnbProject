@@ -1,0 +1,51 @@
+h1 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.reservations-table {
+    margin: 20px auto;
+    max-width: 1400px;
+    padding: 20px;
+    background-color: var(--background-color);
+    border: 1px solid var(--grey-color);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.no-user{
+    text-align: center;
+}
+  
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 8px;
+    text-align: left;
+}
+  
+th {
+    background-color: var(--secondary-color-light);
+    color: var(--background-color-light);
+}
+  
+tr:nth-child(even) {
+    background-color: var(--background-color);
+}
+  
+tr:hover {
+    background-color: var(--grey-color-light);
+}
+  
+
+.button-style {
+    text-align: center; 
+    margin-top: 20px; 
+}
+  
+.button-style button {
+    margin: 0 10px;
+}

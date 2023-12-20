@@ -1,0 +1,36 @@
+<div class="export-container">
+    <h1>Export Data</h1>
+    <div class="data-list">
+      <ul>
+        <li>
+          <p>Users</p>
+          <div class="button-container">
+            <button (click)="exportTojson('users')">Export JSON</button>
+            <button (click)="exportToXml('users')">Export XML</button>
+          </div>
+        </li>
+        <li>
+          <p>Rentals</p>
+          <div class="button-container">
+            <button (click)="exportTojson('rentals')">Export JSON</button>
+            <button (click)="exportToXml('rentals')">Export XML</button>
+          </div>
+        </li>
+        <li>
+          <p>Reservations</p>
+          <div class="button-container">
+            <button (click)="exportTojson('reservations')">Export JSON</button>
+            <button (click)="exportToXml('reservations')">Export XML</button>
+          </div>
+        </li>
+        <li>
+          <p>Reviews</p>
+          <div class="button-container">
+            <button (click)="exportTojson('reviews')">Export JSON</button>
+            <button (click)="exportToXml('reviews')">Export XML</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

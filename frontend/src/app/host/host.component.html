@@ -1,0 +1,33 @@
+<h1>My Rentals</h1>
+
+<div *ngIf="rentals.length == 0"> 
+  <p class="no-rental" >No rentals added yet</p>
+</div>
+
+
+<div *ngIf="rentals.length > 0" class="host-table"> 
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Type</th>
+        <th>City</th>
+        <th>Address</th>
+        <th>Reviews</th>
+        <th>Edit Rental</th>
+        <th>Delete Rental</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let rental of rentals'>
+        <td><strong>{{ rental.id }}</strong></td>
+        <td><strong>{{ rental.type }}</strong></td>
+        <td>{{ rental.city }}</td>
+        <td>{{ rental.address }}</td>
+        <td>{{ rental.reviewSum }}</td>
+        <td><button type="edit-rental" (click)="navigateToRenatlEdit(rental.id || null)">Edit</button></td> 
+        <td><button class="delete-button" (click)="deleteRental(rental)">Delete</button></td> 
+      </tr>
+    </tbody>
+  </table>
+</div>

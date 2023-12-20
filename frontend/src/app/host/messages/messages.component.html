@@ -1,0 +1,11 @@
+<div class="conversation-header">
+    <h1>Your Conversations</h1>
+</div>
+
+<div class="conversation-list">
+    <div *ngFor="let receiver of receivers" class="conversation-item">
+        <a [routerLink]="['/conversation', receiver.id]" class="conversation-link">
+            Conversation with '{{ receiver.username }}'
+        </a>
+    </div>
+</div>

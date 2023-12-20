@@ -1,0 +1,13 @@
+<br>
+<div *ngIf="user">
+    <h1>Profile Page</h1>
+    <div class="profile-info">
+        <img src={{user.imageUrl}} alt="Profile Picture" class="profile-picture">
+        <h2>{{user.username}}</h2>
+        <p>First Name: {{user.firstName}}</p>
+        <p>Last Name: {{user.lastName}}</p>
+        <p>Email: {{user.email}}</p>
+        <p>Phone Number: {{user.phone}}</p>
+        <button type="submit" routerLink="/edit-profile" class="login">Edit Profile</button>
+    </div>
+</div>

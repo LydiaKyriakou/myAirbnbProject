@@ -1,0 +1,231 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+  
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+  
+.search-bar input {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+}
+
+.search-bar button {
+    margin: 5px;
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+}
+
+.colored-text {
+    color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+  
+label {
+    display: block;
+    padding-left: 10px;
+    color: var(--primary-color-light);
+}
+  
+input[type="text"],
+input[type="date"],
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid var(--grey-color);
+    width: 200px;
+}
+
+
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li a{
+    height: 25.5rem;
+    width: 20rem;
+    border-radius: 0.7rem;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+  
+  li a:hover{
+    opacity: 0.9;
+    cursor: pointer;
+  }
+  
+  .content{
+    padding: .5rem 1rem;
+    position: relative;
+  }
+  
+  .results{
+    text-align: center;
+  }
+  
+  ul li a img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; 
+  }
+  
+  .button-style {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 20px; 
+  }
+  
+  .button-style button {
+    background-color: var(--secondary-color-light);
+    color: var(--background-color-light);
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  
+  .button-style button:hover {
+    background-color: var(--grey-color);
+  }
+  
+  .button-style button + button {
+    margin-left: 15px;
+  }
+  
+  
+  .filters-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+    
+  .filter-item {
+    margin: 0 10px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+    
+  input[type="text"],
+  select {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .apply-btn {
+    padding: 8px 20px;
+    background-color: #426fe0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .apply-btn:hover {
+    background-color: #3d3c3c;
+  }
+  
+  
+  .cost {
+    font-size: 20px;
+    font-weight: bold; 
+    color: var(--secondary-color-light);
+  }
+  
+  
+  .title {
+    font-size: 22px;
+    font-weight: bold; 
+    color: var(--secondary-color-light);
+  }
+  
+  
+  
+  
+  .filters-form {
+    /* display: flex;
+    flex-wrap: wrap; */
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .filter-item {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .filter-item label {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .filter-item input[type="number"],
+  .filter-item input[type="checkbox"],
+  .filter-item select {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .apply-btn {
+    padding: 8px 20px;
+    background-color: #426fe0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .apply-btn:hover {
+    background-color: #3d3c3c;
+  }
+  
+
+  .suggested{
+    text-align: center;
+  }
+  
+  
+  
+  
+  
+
+  
+  

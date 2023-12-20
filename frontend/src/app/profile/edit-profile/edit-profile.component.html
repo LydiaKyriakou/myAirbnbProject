@@ -1,0 +1,85 @@
+<form (submit)="updateUsername()">
+    <div *ngIf="user" class="container">
+      <h1>Edit Profile</h1>
+      <p>You can edit your account details.</p>
+  
+      <hr>
+  
+      <div>
+        <label for="username">Username <span class="req"></span></label>
+        <input type="text" id="username" placeholder="Create username" name="username" required [(ngModel)]="user.username">
+      </div>
+      
+      <div class="same-row">
+        <div class="form-group">
+          <label for="first-name">First Name <span class="req"></span></label>
+          <input type="text" placeholder="Enter your first name" name="firstName" id="first-name" required [(ngModel)]="user.firstName">
+        </div>
+      
+        <div class="form-group">
+          <label for="last-name">Last Name <span class="req"></span></label>
+          <input type="text" placeholder="Enter your last name" name="lastName" id="last-name" required [(ngModel)]="user.lastName">
+        </div>
+      </div>
+  
+      <br>
+       
+      <div class="form-group">
+        <label for="email">Email <span class="req"></span></label>
+        <input type="text" placeholder="Enter Email" name="email" id="email" required [(ngModel)]="user.email">
+      </div>
+    
+      <div class="form-group">
+        <label for="phone">Phone Number <span class="req"></span></label>
+        <input type="text" placeholder="Enter Phone Number:" name="phone" id="phone" required [(ngModel)]="user.phone">
+      </div>
+  
+      <br>
+    
+      <div class="same-row">
+        <div>
+          <label for="psw">Password <span class="req"></span></label>
+          <input
+            type="{{ isPasswordVisible ? 'text' : 'password' }}"
+            placeholder="Enter Password"
+            name="password"
+            id="psw"
+            [(ngModel)]="password"
+            />
+          <span (click)="togglePasswordVisibility()" class="eye-icon">
+            <img [src]="isPasswordVisible ? visibleEyeIconUrl : hiddenEyeIconUrl" alt="Toggle password visibility" />
+          </span>
+        </div>
+        
+        <div>
+          <label for="psw-repeat">Confirm Password<span class="req"></span></label>
+          <input
+            type="{{ isPasswordVisible ? 'text' : 'password' }}"
+            placeholder="Confirm Password"
+            name="confirmPassword"
+            id="psw-repeat"
+            [(ngModel)]="confirmPassword"
+          />
+          <span (click)="togglePasswordVisibility()" class="eye-icon">
+            <img [src]="isPasswordVisible ? visibleEyeIconUrl : hiddenEyeIconUrl" alt="Toggle password visibility" />
+          </span>
+        </div>
+      </div>
+  
+  
+      <br>
+  
+
+      <label for="imageUrl">Image Url <span class="req"></span></label>
+      <br>
+      <input type="file" (change)="onSelect($event)" />
+      <img src={{user.imageUrl}} alt="Profile Picture" class="profile-picture">
+
+
+      <hr>
+      <button type="submit" class="registerbtn">Make Changes</button>
+      
+    </div>
+</form>
+  
+    

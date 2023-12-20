@@ -1,0 +1,137 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~leaflet/dist/leaflet.css";
+
+/* Global font */
+@font-face {
+    font-family: Century Gothic;
+    src: url('assets/fonts/century-gothic.ttf') format('truetype');
+}
+
+
+/* Global colors */
+:root {
+    /* Primary colors */
+    --primary-color: #0445E6;
+    --primary-color-light: #1D64C4;
+    
+    /* Secondary colors */
+    --secondary-color: #4968EB;
+    --secondary-color-light: #0294F1;
+    
+    /* Background colors */
+    --background-color: #f2f2f2;
+    --background-color-light: #ffffff;
+    
+    /* Text colors */
+    --text-color: #333333;
+    --text-color-light: #888888;
+
+    /* Yellow shades */
+    --yellow1: #F0C112;
+    --yellow2: #F8DC21;
+    
+    /* Grey */
+    --grey-color: #cccccc;
+    --grey-color-light: #dddddd;
+}
+
+
+/* Style of body */
+body {
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/* Global heading styles */
+h1 {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+a {
+    color: var(--secondary-color-ligh);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary-color-light);
+}
+
+/* Global button style */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--text-color-light);
+}
+
+
+/* Example specific styles for user details table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--grey-color);
+}
+
+/* Global styles for list */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+
+
+/* th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+  
+td {
+    border-top: 1px solid #ccc;
+} */
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,89 @@
+h1 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li a{
+  height: 22.5rem;
+  width: 20rem;
+  border-radius: 0.7rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+li a:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.content{
+  padding: .5rem 1rem;
+  position: relative;
+}
+
+.no-rental{
+  text-align: center;
+}
+
+ul li a img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; 
+}
+
+
+.host-table {
+  margin: 20px auto;
+  max-width: 1400px;
+  padding: 20px;
+  background-color: var(--background-color);
+  border: 1px solid var(--grey-color);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 8px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--secondary-color-light);
+  color: var(--background-color-light);
+}
+
+tr:nth-child(even) {
+  background-color: var(--background-color);
+}
+
+tr:hover {
+  background-color: var(--grey-color-light);
+}
+
+
+.button-style {
+  text-align: center; 
+  margin-top: 20px; 
+}
+
+.button-style button {
+  margin: 0 10px; 
+}

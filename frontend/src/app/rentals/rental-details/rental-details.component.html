@@ -1,0 +1,162 @@
+<div class="map-container">
+  <div class="map-frame">
+    <div id="map"></div>
+  </div>
+</div>
+
+<div *ngIf="rental" class="rental-details-container">
+  <br>
+
+  <h1>{{ rental.type }} in {{ rental.city }}</h1>
+  <h5>{{ rental.description }}</h5>
+
+  <br>
+
+  <div class="box">
+    <div *ngIf="rental.imageUrls && rental.imageUrls.length > 0">
+      <div class="image-container">
+        <img *ngFor="let imageUrl of rental.imageUrls" [src]="imageUrl.imageUrl" alt="Rental Image" class="image-thumbnail">
+      </div>
+    </div>
+  </div>
+
+  <br>
+  
+  <div class="container">
+    <div class="box">
+      <h2 class="title">Place Information</h2>
+      <br>
+      <ul>
+        <li>{{ rental.beds }} bed</li>
+        <li>{{ rental.bathrooms }} bathrooms</li>
+        <li>{{ rental.bedrooms }} bedrooms</li>
+        <li *ngIf="rental.livingroom === true; else noLivingRoom">With living room</li>
+        <ng-template #noLivingRoom><li>Without living room</li></ng-template>
+        <li>{{ rental.area }} square meters</li>
+      </ul>
+    </div>
+  
+    <br>
+    
+    <div class="box">
+      <h2>Rules</h2>
+      <br>
+      <ul>
+        <li *ngIf="rental.smoking === true; else noSmoking">Yes smoking</li>
+        <ng-template #noSmoking><li>No smoking</li></ng-template>
+        <li *ngIf="rental.pets === true; else noPets">Yes pets</li>
+        <ng-template #noPets><li>No pets</li></ng-template>
+        <li *ngIf="rental.events === true; else noEvents">Yes events</li>
+        <ng-template #noEvents><li>No events</li></ng-template>
+        <li>{{ rental.minDays }} minimum number of rental days</li>
+      </ul>
+    </div>
+  
+    <br>
+  
+    <div class="box">
+      <h2>Location</h2>
+      <br>
+  
+      <p>Address: {{ rental.address }}</p>
+      <p>City: {{ rental.city }}</p>
+      <p>Neighborhood: {{ rental.neighbor }}</p>
+      <p>Transportation: {{ rental.transportation }}</p>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="box">
+    <div *ngIf="rental">      
+      <h2>Available Dates</h2>
+      <br>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let date of rental.availableDates">
+            <td>{{ date | date:'MM-dd-yyyy' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="container">
+    <div class="box">
+      <div *ngIf="hostData">      
+        <h2>Host's Informations</h2>
+        <br>
+        <img src={{hostData.imageUrl}} alt="Profile Picture" class="profile-picture">
+        <p>Username: {{ hostData.username }}</p>
+        <p>First Name: {{ hostData.firstName }}</p>
+        <p>Last Name: {{ hostData.lastName }}</p>
+      </div>
+      <br>
+      <button (click)="sentMessage()" class="conversation-link">Sent Message</button>
+    </div>
+  
+    <div class="box">
+      <h2>Rental Reviews</h2>
+      <br>
+      <div *ngIf="reviews.length > 0">
+        <div *ngFor="let review of reviews">
+          <div class="review">
+            <p>{{ getStarRating(review.rating || 0) }} {{ review.username }} wrote on {{ review.date | date:'MM-dd-yyyy' }} "{{ review.review }}" </p>
+          </div>
+        </div>
+      </div>
+  
+      <div *ngIf="reviews.length == 0">
+        <p>No reviews yes</p>
+      </div>
+    </div>
+
+    
+    <div *ngIf="form == false" class="box">
+      <form (ngSubmit)="makeNewReservation(rental.id || null)">
+        <div class="search-bar">
+            <div class="form-group">
+                <label for="checkin">Check-in:</label>
+                <input type="date" id="checkin" name="arrive" [(ngModel)]="arrive">
+            </div>
+            <div class="form-group">
+                <label for="checkout">Check-out:</label>
+                <input type="date" id="checkout" name="leave" [(ngModel)]="leave">
+            </div>
+            <div class="form-group">
+                <label for="numGuests">Number of Guests:</label>
+                <input type="number" id="numGuests" name="numGuests" [(ngModel)]="numGuests">
+            </div>
+            
+            <button type="submit">Make Reservation</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="box" *ngIf="form == true">
+      <div>      
+        <h2>Make a Reservation</h2>
+        <br>
+        <p>From: {{ startDate | date:'MM-dd-yyyy' }}</p>
+        <p>To: {{ endDate | date:'MM-dd-yyyy' }}</p>
+        <p>Guests: {{ guests }}</p>
+        <br>
+        <p><strong>{{ (rental.minPrice || 0) + ((rental.plusPricePerPerson || 0) * (queryParams.guests - 1 || 0)) }}€ x {{ daysBetweenDates(startDate, endDate) }}</strong></p>
+        <p><strong>Total: {{ calculatePricePerDay() }}€ </strong></p>
+
+      </div>
+      <br>
+      <button (click)="makeReservation(rental.id || 0)">Reservation</button>
+    </div>
+  </div>
+
+
+</div>
+

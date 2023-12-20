@@ -1,0 +1,65 @@
+<div class="home-container">
+    <h1>Welcome to <span class="colored-text">Get A Room!</span></h1>
+
+    <form (ngSubmit)="navigateToSolutionsPage()">
+        <div class="search-bar">
+            <div class="form-group">
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination" name="destination" [(ngModel)]="destination">
+            </div>
+            <div class="form-group">
+                <label for="checkin">Check-in:</label>
+                <input type="date" id="checkin" name="arrive" [(ngModel)]="arrive">
+            </div>
+            <div class="form-group">
+                <label for="checkout">Check-out:</label>
+                <input type="date" id="checkout" name="leave" [(ngModel)]="leave">
+            </div>
+            <div class="form-group">
+                <label for="numGuests">Number of Guests:</label>
+                <input type="number" id="numGuests" name="numGuests" [(ngModel)]="numGuests">
+            </div>
+            
+            <button type="submit">Search</button>
+        </div>
+    </form>
+</div>
+
+
+
+<div *ngIf="decodedToken != null">
+    <h2 class="suggested">Suggested for <span class="colored-text">you</span></h2>
+    
+    <br>
+    <ul>
+        <li *ngFor="let rental of rentals">
+            <a (click)="navigateToRenatlDetails(rental.id || null)" >
+                <img *ngIf="rental.imageUrls" src="{{rental.imageUrls[0].imageUrl}}" alt="">
+    
+                <div class="content">
+                    <div class="title">
+                        {{rental.type}} in {{rental.neighbor}}
+                    </div>
+                    <div>
+                        {{rental.beds}} Beds
+                    </div>
+                    <div>
+                        {{ getStarRating(rental.reviewAvg || 0) }} ({{ rental.reviewSum }})
+                    </div>
+                    <div>
+                          <i *ngIf="rental.wifi == true" class="material-icons" style="font-size:20px">wifi</i>
+                          <i *ngIf="rental.ac == true" class="material-icons" style="font-size:20px">ac_unit</i>
+                          <i *ngIf="rental.kitchen == true" class="material-icons" style="font-size:20px">kitchen</i>
+                          <i *ngIf="rental.tv == true" class="material-icons" style="font-size:20px">tv</i>
+                          <i *ngIf="rental.parking == true" class="material-icons" style="font-size:20px">local_parking</i>
+                          <i *ngIf="rental.elevator == true" class="material-icons" style="font-size:20px">elevator</i>
+                    </div>
+                    <div class="cost">
+                        {{ rental.minPrice }}€ / Minimum Price 
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+
