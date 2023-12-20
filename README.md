@@ -10,13 +10,23 @@ Regarding the security of the application, Spring Security has been used
 as well as JWT technology and the SSL protocol
 
 ## Table of Contents
-- [Instructions - Installation](#Instructions - Installation)
+- [Installation](#Installation)
   - [Database](#Database)
   - [Backend](#Backend)
   - [Frontend](#Frontend)
+- [Instructions](#Instructions)
+  - [Simple User](#Simple User)
+  - [Host](#Host)
+  - [Admin](#Admin)
 - [Screenshot](#Screenshot)
+  - [User Home Page](#User Home Page)
+  - [Rental Result Page](#Rental Result Page)
+  - [Rental Page](#Rental Page)
+  - [Host Page](#Host Page)
+  - [Chat](#Chat)
+  - [Admin Page](#Admin Page)
 
-## Instructions - Installation
+## Installation
 
 ### Database
 It is required to import the database file from My-Sql-Workbench.
@@ -33,8 +43,55 @@ It is required to import the database file from My-Sql-Workbench.
 3) Run the command `ng serve` to run the program.
 4) Navigate to `http://localhost:4200/
 
+## Instructions
+The new usew can register in Get A Room as:
+- simple user or
+- host
+
+However, in Get A Room you can log in as
+- simple user 
+- host and
+- admin
+
+### Simple User
+For the "simple user" Inerface try loging in as following:
+- username: john
+- password: 123456
+
+When logged as "simple user" in the search area try the following fields:
+- Destination: Athens
+- Check-in: 01/10/2023
+- Check-out: 02/10/2023
+- Number of Guests: 2
+
+### Host
+For the "host" Inerface try loging in as following:
+- username: anna
+- password: 123456
+
+### Admin
+For the "admin" Inerface try loging in as following:
+- username: admin
+- password: 123456
+
 ## Screenshot
 
-![Project Logo](https://github.com/LydiaKyriakou/myAirbnbProject/blob/master/Screenshot/user_home.png)
+### User Home Page
+![User Home Page](https://github.com/LydiaKyriakou/myAirbnbProject/blob/master/Screenshot/user_home.png)
+
+### Rental Result Page
+![Rental Result Page](https://github.com/LydiaKyriakou/myAirbnbProject/blob/master/Screenshot/result_page.png)
+
+### Rental Page
+![Rental Page](https://github.com/LydiaKyriakou/myAirbnbProject/blob/master/Screenshot/rental_page.png)
+
+### Host Page
+![Host Page](https://github.com/LydiaKyriakou/myAirbnbProject/blob/master/Screenshot/host_page.png)
+
+### Chat
+![Chat](https://github.com/LydiaKyriakou/myAirbnbProject/blob/master/Screenshot/chat.png)
+
+### Admin Page
+![Admin Page](https://github.com/LydiaKyriakou/myAirbnbProject/blob/master/Screenshot/admin_page.png)
 
 
