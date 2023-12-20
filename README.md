@@ -15,16 +15,16 @@ as well as JWT technology and the SSL protocol
   - [Backend](#Backend)
   - [Frontend](#Frontend)
 - [Instructions](#Instructions)
-  - [Simple_User](#Simple_User)
+  - [Simple User](#Simple-User)
   - [Host](#Host)
   - [Admin](#Admin)
 - [Screenshot](#Screenshot)
-  - [User_Home_Page](#User Home Page)
-  - [Rental_Result_Page](#Rental Result Page)
-  - [Rental_Page](#Rental Page)
-  - [Host_Page](#Host Page)
+  - [User Home Page](#User-Home-Page)
+  - [Rental Result Page](#Rental-Result-Page)
+  - [Rental Page](#Rental-Page)
+  - [Host Page](#Host-Page)
   - [Chat](#Chat)
-  - [Admin Page](#Admin Page)
+  - [Admin Page](#Admin-Page)
 
 ## Installation
 
@@ -53,7 +53,7 @@ However, in Get A Room you can log in as
 - host and
 - admin
 
-### Simple_User
+### Simple User
 For the "simple user" Inerface try loging in as following:
 - username: john
 - password: 123456
@@ -76,22 +76,22 @@ For the "admin" Inerface try loging in as following:
 
 ## Screenshot
 
-### User_Home_Page
+### User Home Page
 ![User Home Page](https://github.com/LydiaKyriakou/myAirbnbProject/blob/master/Screenshot/user_home.png)
 
-### Rental_Result_Page
+### Rental Result Page
 ![Rental Result Page](https://github.com/LydiaKyriakou/myAirbnbProject/blob/master/Screenshot/result_page.png)
 
-### Rental_Page
+### Rental Page
 ![Rental Page](https://github.com/LydiaKyriakou/myAirbnbProject/blob/master/Screenshot/rental_page.png)
 
-### Host_Page
+### Host Page
 ![Host Page](https://github.com/LydiaKyriakou/myAirbnbProject/blob/master/Screenshot/host_page.png)
 
 ### Chat
 ![Chat](https://github.com/LydiaKyriakou/myAirbnbProject/blob/master/Screenshot/chat.png)
 
-### Admin_Page
+### Admin Page
 ![Admin Page](https://github.com/LydiaKyriakou/myAirbnbProject/blob/master/Screenshot/admin_page.png)
 
 
